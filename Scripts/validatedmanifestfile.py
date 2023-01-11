@@ -4,13 +4,13 @@ import sys
 import subprocess 
 # seperator for the current csv file is ",".
 # check whether all the iputs are provided by the user
-with open('manifestfile.csv') as csvfile:
+with open('/var/jenkins_home/workspace/POC-BuildPipeline/code/manifestfile.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',')
     for row in csvReader:
         if len(row)<5:
             print (row)
             sys.exit("provide proper values seprated by commas")
-df = pd.read_csv('manifestfile.csv')
+df = pd.read_csv('/var/jenkins_home/workspace/POC-BuildPipeline/code/manifestfile.csv')
 print (df)
 #data cleaning.
 df = df.dropna(how='all')
