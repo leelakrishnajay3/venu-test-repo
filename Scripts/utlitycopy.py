@@ -109,5 +109,5 @@ os.chdir(targetpath)
 
 
 import shutil
-
+print(targetpath)
 shutil.make_archive('buildID', format='zip', root_dir=targetpath)
