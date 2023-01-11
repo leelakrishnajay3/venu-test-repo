@@ -4,13 +4,13 @@ import sys
 import subprocess 
 # seperator for the current csv file is ",".
 # check whether all the iputs are provided by the user
-with open('sequence_validation.csv') as csvfile:
+with open('manifestfile.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',')
     for row in csvReader:
         if len(row)<5:
             print (row)
             sys.exit("provide proper values seprated by commas")
-df = pd.read_csv('sequence_validation.csv')
+df = pd.read_csv('manifestfile.csv')
 print (df)
 #data cleaning.
 df = df.dropna(how='all')
@@ -41,5 +41,5 @@ df = df.sort_values(by=['Sequence'], ascending=True )
 print (df)
 df.to_csv('deployment.csv',index=False)
 
-output = subprocess.call(['createzip.sh'])
-print(output)
+# output = subprocess.call(['createzip.sh'])
+# print(output)
