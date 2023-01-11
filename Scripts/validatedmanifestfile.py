@@ -1,16 +1,18 @@
 import pandas as pd
 import csv
+import subprocess
 import sys
-import subprocess 
+ar_lst=list(sys.argv)
+arg_manifestfile_path=ar_lst[1]
 # seperator for the current csv file is ",".
 # check whether all the iputs are provided by the user
-with open('/var/jenkins_home/workspace/POC-BuildPipeline/code/manifestfile.csv') as csvfile:
+with open(arg_manifestfile_path) as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',')
     for row in csvReader:
         if len(row)<5:
             print (row)
             sys.exit("provide proper values seprated by commas")
-df = pd.read_csv('/var/jenkins_home/workspace/POC-BuildPipeline/code/manifestfile.csv')
+df = pd.read_csv(arg_manifestfile_path)
 print (df)
 #data cleaning.
 df = df.dropna(how='all')
